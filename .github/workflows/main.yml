@@ -11,12 +11,14 @@ jobs:
     name: Build Docker Image
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
+      - name: Checkout develop
         uses: actions/checkout@v2.3.4
       - name: Log in to GitHub Packages
-        run: echo ${GITHUB_TOKEN} | winpty docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+        run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+#        run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Pull image
         run: |
           docker pull ${{ env.IMAGE }}:latest || true
@@ -37,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Checkout master
+      - name: Checkout develop
         uses: actions/checkout@v2.3.4
       - name: Log in to GitHub Packages
         run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
