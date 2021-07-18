@@ -9,7 +9,8 @@ log = logging.getLogger("uvicorn")
 
 
 class Settings(BaseSettings):
-    environment: str = os.getenv("ENVIRONMENT", "dev")
+    # os.getenv(lost envkey -> default)
+    environment: str = os.getenv("ENVIRONMENT", "default_val")
     testing: bool = os.getenv("TESTING", 0)
     database_url: AnyUrl = os.environ.get("DATABASE_URL")
 
