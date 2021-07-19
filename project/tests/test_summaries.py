@@ -57,3 +57,9 @@ def test_read_all_summaries(test_app_with_db):
 
     response_list = response.json()
     assert len(list(filter(lambda d: d["id"] == summary_id, response_list))) == 1
+
+
+def test_ping(test_app):
+    response = test_app.get("/ping")
+    assert response.status_code == 200
+    assert response.json() == {"environment": "dev", "ping": "pong", "testing": True}
