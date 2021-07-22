@@ -57,6 +57,7 @@ jobs:
       - name: Build images
         run: |
           docker build \
+            --target builder \
             --cache-from ${{ env.IMAGE }}-builder:latest \
             --tag ${{ env.IMAGE }}-builder:latest \
             --file ./project/Dockerfile.prod \
