@@ -113,7 +113,7 @@ jobs:
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
           TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY }}
       - name: post
-        run: echo -e "hoge" > tweets/together-first.tweet
+        run: echo -e "testtesttest" > tweets/together-first.tweet
 
 
   deploy:
