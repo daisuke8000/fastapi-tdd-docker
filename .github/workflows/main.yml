@@ -100,7 +100,6 @@ jobs:
   tweet:
     name: Tweet
     runs-on: ubuntu-latest
-    needs: [build, test]
     steps:
       - name: checkout develop
         uses: actions/checkout@v2.3.4
