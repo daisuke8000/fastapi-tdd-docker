@@ -16,6 +16,7 @@ jobs:
       - name: test1
         uses: kceb/pull-request-url-action@v1
         id: pr-url
-      - run: |
+      - name: test2
+        run: |
           echo "${{ steps.pr-url.outputs.url }}"
 
