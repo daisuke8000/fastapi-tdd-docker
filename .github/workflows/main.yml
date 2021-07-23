@@ -1,21 +1,16 @@
+name: Show Pull Request Event
+
 on:
-  push:
+  pull_request:
     branches:
       - develop
 
-env:
-  IMAGE: docker.pkg.github.com/$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]')/summarizer
-
 jobs:
-
-  make:
-    name: Touch File
+  show:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout develop
-        uses: actions/checkout@v2.3.4
-      - name: title
-        run: echo ${{ github.event.pull_request.title }}
+      - name: Run echo
+        run: echo ${{ github.event.pull_request.html_url }}
 
 #  build:
 #    name: Build Docker Image
