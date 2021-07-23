@@ -8,6 +8,17 @@ env:
 
 jobs:
 
+  make:
+    name: Touch File
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2.3.4
+      - name: filename
+        run: title=${{ github.event.pull_request.title }}
+      - name: touchfile
+        run: touch ./tweets/$title_xx.tweet
+
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
