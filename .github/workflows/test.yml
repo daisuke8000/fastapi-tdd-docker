@@ -14,5 +14,4 @@ jobs:
       - name: Checkout develop
         uses: actions/checkout@v2.3.4
       - name: test1
-        run: echo ${GITHUB_REPOSITORY} \
-             echo pwd
+        run: echo ${GITHUB_REPOSITORY} ${URL}
