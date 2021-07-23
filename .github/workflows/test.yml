@@ -16,7 +16,6 @@ jobs:
       - name: test1
         uses: kceb/pull-request-url-action@v1
         id: pr-url
-        run: |
+      - run: |
           echo "${{ steps.pr-url.outputs.url }}"
-          sh touch ./tweets/test.txt
 
