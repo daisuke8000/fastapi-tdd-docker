@@ -1,0 +1,17 @@
+name: Continuous Integration and Delivery Test
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2.3.4
+      - name: test1
+        run: echo ${GITHUB_REPOSITORY}
